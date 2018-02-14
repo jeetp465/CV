@@ -50,21 +50,39 @@ Last Updated on \today % Last Updated text
 %----------------------------------------------------------------------------------------
 %	MAIN HEADING COMMAND
 %----------------------------------------------------------------------------------------
+% \usepackage{hyperref} % Required for adding links	and customizing them
+\usepackage[usenames,dvipsnames]{xcolor} % Required for specifying custom colours
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link colour
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colours throughout the document
+% \usepackage{,colortbl} % Advanced table configurations
+% \usepackage{array} % Custom arrangement for the columns
+% \usepackage{multirow} %rows spanning multiple rows
 
-\newcommand{\namesection}[4]{ % Defines the command for the main heading
-\centering{ % Center the name
-\fontsize{30pt}{45pt} % Font size
-\fontspec{Lato-Reg}\selectfont #1 % First name font
-\fontspec{Lato-Bol}\selectfont #2 % Last name font
-\hfill 
-\color{headings} % Use the headings color
-\fontspec{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3  % Contact information font
+\newcommand{\namesection}[5]{ % Defines the command for the main heading
+\noindent\begin{minipage}[t]{0.65\textwidth}
+    \vfill
+    {   \fontsize{27.5pt}{40pt}
+        \fontspec{Lato-Reg}\selectfont #1 
+        \fontspec{Lato-Bol}\selectfont #2
+    } \\
+    % \vfil
+    \emph{Targeted Interactions, Sears Hodings India}
+    \vfill
+\end{minipage}   
 \hfill
-\fontspec{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #4} % Contact information font
-\vspace{-5mm} % Reduce whitespace after the rule slightly
-\noindent\makebox[\linewidth]{\color{headings}\rule{0.9\paperwidth}{0.4pt}} % Horizontal rule
-\vspace{-5mm}
-\noindent\makebox[\linewidth]{\color{headings}\rule{0.9\paperwidth}{0.4pt}} % Horizontal rule
+\begin{minipage}[t]{0.27\textwidth}
+{
+{\Large\Letter} {\href{mailto:jeet.patel022@gmail.com}{\fontspec{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3}}\\
+\vspace{0.8mm}
+{\Large\faGithub} {\href{https://github.com/jeetp465}{\fontspec{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #4}}\\
+\vspace{0.8mm}
+{\Large\phone} {\fontspec{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #5}
+}   
+\end{minipage} 
+\vspace{0.6mm}
+\hrule
+\vspace{0.6mm}
+\hrule
 }
 
 %----------------------------------------------------------------------------------------
@@ -84,16 +102,16 @@ Last Updated on \today % Last Updated text
 \color{subheadings}\fontspec{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
 
 \newcommand{\runsubsection}[1]{ % Used for creating subsections where a description is required on the same line
-\color{subheadings}\fontspec{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
+\color{subheadings}\fontspec{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\raggedright\bfseries\uppercase {#1} \normalfont}
 
 \newcommand{\descript}[1]{ % Used for describing the subsection either on the same line or underneath
 \color{subheadings}\raggedright\scshape\fontspec{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {\hfill #1\\} \normalfont}
 
 \newcommand{\location}[1]{ % Used for specifying a duration and/or location under a subsection
-\color{headings}\raggedright\fontspec{Raleway-Regular}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
+\color{headings}\raggedright\fontspec{Raleway-Regular}\fontsize{10pt}{12pt}\selectfont {#1} \normalfont}
 
-\newcommand{\duration}[2]{ % Used for specifying a duration and/or location under a subsection
-\color{headings}\raggedright\fontspec{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1 \hfill #2\\} \normalfont}
+\newcommand{\duration}[1]{ % Used for specifying a duration and/or location under a subsection
+\color{headings}\raggedright\fontspec{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {\hfill #1\\} \normalfont}
 
 \newcommand{\category}[1]{ % Used for specifying a duration and/or location under a subsection
 \color{headings}\raggedright\fontspec{Raleway-Regular}\fontsize{10pt}{12pt}\selectfont {#1} \normalfont}
